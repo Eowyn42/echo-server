@@ -8,11 +8,11 @@ def server(log_buffer=sys.stderr):
     # set an address for our server
     address = ('127.0.0.1', 10000)
     buffer_size = 16 # size of chunks
-    # TODO: Replace the following line with your code which will instantiate
+    # Replace the following line with your code which will instantiate
     #       a TCP socket with IPv4 Addressing, call the socket you make 'sock'
     while True:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM, socket.IPPROTO_TCP)
-        # TODO: You may find that if you repeatedly run the server script it fails,
+        # You may find that if you repeatedly run the server script it fails,
         #       claiming that the port is already used.  You can set an option on
         #       your socket that will fix this problem. We DID NOT talk about this
         #       in class. Find the correct option by reading the very end of the
@@ -23,7 +23,7 @@ def server(log_buffer=sys.stderr):
         # log that we are building a server
         print("making a server on {0}:{1}".format(*address), file=log_buffer)
 
-        # TODO: bind your new sock 'sock' to the address above and begin to listen
+        # bind your new sock 'sock' to the address above and begin to listen
         #       for incoming connections
         sock.bind(address)
         sock.listen()
@@ -34,7 +34,7 @@ def server(log_buffer=sys.stderr):
             while True:
                 print('waiting for a connection', file=log_buffer)
 
-                # TODO: make a new socket when a client connects, call it 'conn',
+                # make a new socket when a client connects, call it 'conn',
                 #       at the same time you should be able to get the address of
                 #       the client so we can report it below.  Replace the
                 #       following line with your code. It is only here to prevent
@@ -75,14 +75,14 @@ def server(log_buffer=sys.stderr):
                     traceback.print_exc()
                     sys.exit(1)
                 finally:
-                    # TODO: When the inner loop exits, this 'finally' clause will
+                    # When the inner loop exits, this 'finally' clause will
                     #       be hit. Use that opportunity to close the socket you
                     #       created above when a client connected.
                     sock.close()
                     print('echo complete, client connection closed', file=log_buffer)
                     break
         except KeyboardInterrupt:
-            # TODO: Use the python KeyboardInterrupt exception as a signal to
+            # Use the python KeyboardInterrupt exception as a signal to
             #       close the server socket and exit from the server function.
             #       Replace the call to `pass` below, which is only there to
             #       prevent syntax problems
